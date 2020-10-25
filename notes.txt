@@ -28,7 +28,7 @@ INSERT INTO distribucije_linuxa
 
 INSERT INTO distribucije_linuxa 
 (distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Fedora', 'independent', 'point release', 'dnf', 'x64', '2003', 'https://getfedora.org', 8, 'general', '{"KDE Plasma", "Gnome", "XFCE", "LXQt", "MATE", "Cinnamon", "LXDE", "SOAS"}');
+('Fedora', 'independent', 'point release', 'dnf', 'x64', '2003', 'https://getfedora.org', 8, 'general, server', '{"KDE Plasma", "Gnome", "XFCE", "LXQt", "MATE", "Cinnamon", "LXDE", "SOAS"}');
 
 INSERT INTO distribucije_linuxa 
 (distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
