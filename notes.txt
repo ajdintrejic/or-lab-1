@@ -58,3 +58,11 @@ INSERT INTO distribucije_linuxa
 (distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
 ('Linux Mint', 'Ubuntu', 'point release', 'apt', 'x64', '2006', 'https://linuxmint.com', 3, 'general', '{"Cinnamon", "XFCE", "MATE"}');
 
+COPY distribucije_linuxa TO '/tmp/distribucije_linuxa.csv' DELIMITER ',' CSV HEADER;
+
+cp /tmp/distribucije_linuxa.csv .                         
+
+SELECT array_to_json(array_agg(row_to_json (r))) FROM (SELECT * FROM distribucije_linuxa) r; 
+kopirat output i stavit u distribucije_linuxa.json
+cat distribucije_linuxa.json| python -m json.tool > distribucije_linuxa_pretty_print.json
+
