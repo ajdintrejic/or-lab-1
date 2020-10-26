@@ -13,7 +13,8 @@
             "KDE Plasma",
             "Gnome",
             "XFCE"
-        ]
+        ],
+        "wikipage": "Manjaro"
     },
     {
         "distributionname": "ArchLinux",
@@ -25,7 +26,8 @@
         "homepage": "https://archlinux.org",
         "distrowatchrank": 15,
         "targetuse": "general",
-        "supportedde": []
+        "supportedde": [],
+        "wikipage": "Arch_Linux"
     },
     {
         "distributionname": "Fedora",
@@ -46,7 +48,8 @@
             "Cinnamon",
             "LXDE",
             "SOAS"
-        ]
+        ],
+        "wikipage": "Fedora_(operating_system)"
     },
     {
         "distributionname": "Qubes OS",
@@ -61,7 +64,8 @@
         "supportedde": [
             "KDE Plasma",
             "XFCE"
-        ]
+        ],
+        "wikipage": "Qubes_OS"
     },
     {
         "distributionname": "Ubuntu",
@@ -81,7 +85,8 @@
             "LXQt",
             "Budgie",
             "Mate"
-        ]
+        ],
+        "wikipage": "Ubuntu"
     },
     {
         "distributionname": "Debian",
@@ -101,7 +106,8 @@
             "MATE",
             "LXDE",
             "LXQt"
-        ]
+        ],
+        "wikipage": "Debian"
     },
     {
         "distributionname": "ElementaryOS",
@@ -115,7 +121,8 @@
         "targetuse": "general",
         "supportedde": [
             "Pantheon"
-        ]
+        ],
+        "wikipage": "Elementary_OS"
     },
     {
         "distributionname": "Kali Linux",
@@ -129,7 +136,8 @@
         "targetuse": "cybersecurity, pentesting",
         "supportedde": [
             "XFCE"
-        ]
+        ],
+        "wikipage": "Kali_Linux"
     },
     {
         "distributionname": "Pop!_OS",
@@ -143,7 +151,8 @@
         "targetuse": "general",
         "supportedde": [
             "Gnome"
-        ]
+        ],
+        "wikipage": "Pop!_OS"
     },
     {
         "distributionname": "Linux Mint",
@@ -159,6 +168,7 @@
             "Cinnamon",
             "XFCE",
             "MATE"
-        ]
+        ],
+        "wikipage": "Linux_Mint"
     }
 ]

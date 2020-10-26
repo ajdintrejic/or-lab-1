@@ -58,48 +58,49 @@ CREATE TABLE distribucije_linuxa (
    homepage VARCHAR(64),
    distrowatchRank SMALLINT,
    targetUse VARCHAR(32),
-   supportedDE VARCHAR(16)[]
+   supportedDE VARCHAR(16)[],
+   wikiPage VARCHAR(32)
 );
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('ManjaroLinux', 'ArchLinux', 'rolling release', 'pacman', 'x86, x64, ARM (some devices)', '2011', 'https://manjaro.org', 2, 'general', '{"KDE Plasma", "Gnome", "XFCE"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('ManjaroLinux', 'ArchLinux', 'rolling release', 'pacman', 'x86, x64, ARM (some devices)', '2011', 'https://manjaro.org', 2, 'general', '{"KDE Plasma", "Gnome", "XFCE"}', 'Manjaro');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('ArchLinux', 'independent', 'rolling release', 'pacman', 'x64', '2002', 'https://archlinux.org', 15, 'general', '{}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('ArchLinux', 'independent', 'rolling release', 'pacman', 'x64', '2002', 'https://archlinux.org', 15, 'general', '{}', 'Arch_Linux');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Fedora', 'independent', 'point release', 'dnf', 'x64', '2003', 'https://getfedora.org', 8, 'general, server', '{"KDE Plasma", "Gnome", "XFCE", "LXQt", "MATE", "Cinnamon", "LXDE", "SOAS"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('Fedora', 'independent', 'point release', 'dnf', 'x64', '2003', 'https://getfedora.org', 8, 'general, server', '{"KDE Plasma", "Gnome", "XFCE", "LXQt", "MATE", "Cinnamon", "LXDE", "SOAS"}', 'Fedora_(operating_system)');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Qubes OS', 'independent', 'point release', 'dnf', 'x64', '2012', 'https://qubes-os.org', 96, 'general, security, privacy', '{"KDE Plasma", "XFCE"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('Qubes OS', 'independent', 'point release', 'dnf', 'x64', '2012', 'https://qubes-os.org', 96, 'general, security, privacy', '{"KDE Plasma", "XFCE"}', 'Qubes_OS');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Ubuntu', 'Debian', 'point release', 'apt', 'x64', '2004', 'https://ubuntu.com', 4, 'general, server', '{"KDE Plasma", "Gnome", "XFCE", "DeepinDE", "LXQt", "Budgie", "Mate"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('Ubuntu', 'Debian', 'point release', 'apt', 'x64', '2004', 'https://ubuntu.com', 4, 'general, server', '{"KDE Plasma", "Gnome", "XFCE", "DeepinDE", "LXQt", "Budgie", "Mate"}', 'Ubuntu');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Debian', 'independent', 'point release', 'apt', 'x86, x64', '1993', 'https://debian.org', 6, 'general, server', '{"KDE Plasma", "Gnome", "XFCE", "Cinnamon", "MATE", "LXDE", "LXQt" }');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('Debian', 'independent', 'point release', 'apt', 'x86, x64', '1993', 'https://debian.org', 6, 'general, server', '{"KDE Plasma", "Gnome", "XFCE", "Cinnamon", "MATE", "LXDE", "LXQt" }', 'Debian');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('ElementaryOS', 'Ubuntu', 'point release', 'apt', 'x64', '2011', 'https://elementry.io', 7, 'general', '{"Pantheon"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('ElementaryOS', 'Ubuntu', 'point release', 'apt', 'x64', '2011', 'https://elementry.io', 7, 'general', '{"Pantheon"}', 'Elementary_OS');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Kali Linux', 'Debian', 'point release', 'apt', 'x86, x64, ARM (some devices)', '2013', 'https://kali.org', 23, 'cybersecurity, pentesting', '{"XFCE"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('Kali Linux', 'Debian', 'point release', 'apt', 'x86, x64, ARM (some devices)', '2013', 'https://kali.org', 23, 'cybersecurity, pentesting', '{"XFCE"}', 'Kali_Linux');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Pop!_OS', 'Ubuntu', 'point release', 'apt', 'x64', '2017', 'https://system76.com/pop', 5, 'general', '{"Gnome"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('Pop!_OS', 'Ubuntu', 'point release', 'apt', 'x64', '2017', 'https://system76.com/pop', 5, 'general', '{"Gnome"}', 'Pop!_OS');
 
 INSERT INTO distribucije_linuxa 
-(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE) VALUES
-('Linux Mint', 'Ubuntu', 'point release', 'apt', 'x64', '2006', 'https://linuxmint.com', 3, 'general', '{"Cinnamon", "XFCE", "MATE"}');
+(distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
+('Linux Mint', 'Ubuntu', 'point release', 'apt', 'x64', '2006', 'https://linuxmint.com', 3, 'general', '{"Cinnamon", "XFCE", "MATE"}', 'Linux_Mint');
 ```
 
 ### Export to CSV
