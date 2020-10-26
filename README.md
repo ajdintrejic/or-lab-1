@@ -28,6 +28,7 @@ English
 - distrowatchRank (last 6 months)
 - targetUse 
 - supportedDE
+- wikiPage
 
 ## How To
 
@@ -40,7 +41,7 @@ $ sudo -iu postgres				# login as postgres
 $ psql						# enter psql
 ```
 
-### Create a db, and commect to it.
+### Create a db, and connect to it.
 ```
 CREATE DATABASE orlab1;
 \c orlab1
