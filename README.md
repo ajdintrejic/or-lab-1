@@ -29,6 +29,7 @@ English
 - targetUse 
 - supportedDE
 - wikiPage
+- originalDeveloper/developerName (parent child relationship)
 
 ## How To
 
