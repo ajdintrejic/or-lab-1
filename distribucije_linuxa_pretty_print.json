@@ -14,7 +14,8 @@
             "Gnome",
             "XFCE"
         ],
-        "wikipage": "Manjaro"
+        "wikipage": "Manjaro",
+        "developername": "Philip M\u00fcller"
     },
     {
         "distributionname": "ArchLinux",
@@ -27,7 +28,8 @@
         "distrowatchrank": 15,
         "targetuse": "general",
         "supportedde": [],
-        "wikipage": "Arch_Linux"
+        "wikipage": "Arch_Linux",
+        "developername": "Judd Vinet"
     },
     {
         "distributionname": "Fedora",
@@ -49,7 +51,8 @@
             "LXDE",
             "SOAS"
         ],
-        "wikipage": "Fedora_(operating_system)"
+        "wikipage": "Fedora_(operating_system)",
+        "developername": "Warren Togami"
     },
     {
         "distributionname": "Qubes OS",
@@ -65,7 +68,8 @@
             "KDE Plasma",
             "XFCE"
         ],
-        "wikipage": "Qubes_OS"
+        "wikipage": "Qubes_OS",
+        "developername": "Joanna Rutkowska"
     },
     {
         "distributionname": "Ubuntu",
@@ -86,7 +90,8 @@
             "Budgie",
             "Mate"
         ],
-        "wikipage": "Ubuntu"
+        "wikipage": "Ubuntu",
+        "developername": "Mark Shuttleworth"
     },
     {
         "distributionname": "Debian",
@@ -107,7 +112,8 @@
             "LXDE",
             "LXQt"
         ],
-        "wikipage": "Debian"
+        "wikipage": "Debian",
+        "developername": "Ian Murdock"
     },
     {
         "distributionname": "ElementaryOS",
@@ -122,7 +128,8 @@
         "supportedde": [
             "Pantheon"
         ],
-        "wikipage": "Elementary_OS"
+        "wikipage": "Elementary_OS",
+        "developername": "Daniel For\u00e9"
     },
     {
         "distributionname": "Kali Linux",
@@ -137,7 +144,8 @@
         "supportedde": [
             "XFCE"
         ],
-        "wikipage": "Kali_Linux"
+        "wikipage": "Kali_Linux",
+        "developername": "Mati Aharoni"
     },
     {
         "distributionname": "Pop!_OS",
@@ -152,7 +160,24 @@
         "supportedde": [
             "Gnome"
         ],
-        "wikipage": "Pop!_OS"
+        "wikipage": "Pop!_OS",
+        "developername": "Carl Richell"
+    },
+    {
+        "distributionname": "Pop!_OS",
+        "basename": "Ubuntu",
+        "releasetype": "point release",
+        "packagemanager": "apt",
+        "supportedarch": "x64",
+        "yearofcreation": "2017",
+        "homepage": "https://system76.com/pop",
+        "distrowatchrank": 5,
+        "targetuse": "general",
+        "supportedde": [
+            "Gnome"
+        ],
+        "wikipage": "Pop!_OS",
+        "developername": "Erik Fetzer"
     },
     {
         "distributionname": "Linux Mint",
@@ -169,6 +194,7 @@
             "XFCE",
             "MATE"
         ],
-        "wikipage": "Linux_Mint"
+        "wikipage": "Linux_Mint",
+        "developername": "Clement Lefebvre"
     }
 ]

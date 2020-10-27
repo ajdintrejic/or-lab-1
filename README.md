@@ -63,6 +63,15 @@ CREATE TABLE distribucije_linuxa (
    wikiPage VARCHAR(32)
 );
 
+CREATE TABLE originalDevelopers(
+   distributionName VARCHAR(32),
+   developerName VARCHAR(64) NOT NULL,
+   PRIMARY KEY(developerName),
+   CONSTRAINT fk_distributionname
+      FOREIGN KEY(distributionName) 
+	  REFERENCES distribucije_linuxa(distributionName)
+);
+
 INSERT INTO distribucije_linuxa 
 (distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
 ('ManjaroLinux', 'ArchLinux', 'rolling release', 'pacman', 'x86, x64, ARM (some devices)', '2011', 'https://manjaro.org', 2, 'general', '{"KDE Plasma", "Gnome", "XFCE"}', 'Manjaro');
@@ -102,6 +111,50 @@ INSERT INTO distribucije_linuxa
 INSERT INTO distribucije_linuxa 
 (distributionName, baseName, releaseType, packageManager, supportedArch, yearOfCreation, homepage, distrowatchRank, targetUse, supportedDE, wikiPage) VALUES
 ('Linux Mint', 'Ubuntu', 'point release', 'apt', 'x64', '2006', 'https://linuxmint.com', 3, 'general', '{"Cinnamon", "XFCE", "MATE"}', 'Linux_Mint');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('ManjaroLinux', 'Philip Müller');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('ArchLinux', 'Judd Vinet');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Fedora', 'Warren Togami');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Qubes OS', 'Joanna Rutkowska');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Ubuntu', 'Mark Shuttleworth');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Debian', 'Ian Murdock');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('ElementaryOS', 'Daniel Foré');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Kali Linux', 'Mati Aharoni');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Pop!_OS', 'Carl Richell');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Pop!_OS', 'Erik Fetzer');
+
+INSERT INTO originalDevelopers
+(distributionName, developerName) VALUES
+('Linux Mint', 'Clement Lefebvre');
 ```
 
 ### Export to CSV
@@ -120,5 +173,11 @@ Copy output and paste it in `distribucije_linuxa.json`.
 #### Pretty print using Python
 ```
 cat distribucije_linuxa.json| python -m json.tool > distribucije_linuxa_pretty_print.json
+```
+
+#### Dump db
+```
+pg_dump orlab1 > /tmp/orlab1.sql
+cp /tmp/orlab1.sql .
 ```
 

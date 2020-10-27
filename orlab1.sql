@@ -42,6 +42,18 @@ CREATE TABLE public.distribucije_linuxa (
 ALTER TABLE public.distribucije_linuxa OWNER TO postgres;
 
 --
+-- Name: originaldevelopers; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.originaldevelopers (
+    distributionname character varying(32),
+    developername character varying(64) NOT NULL
+);
+
+
+ALTER TABLE public.originaldevelopers OWNER TO postgres;
+
+--
 -- Data for Name: distribucije_linuxa; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -60,11 +72,46 @@ Linux Mint	Ubuntu	point release	apt	x64	2006	https://linuxmint.com	3	general	{Ci
 
 
 --
+-- Data for Name: originaldevelopers; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.originaldevelopers (distributionname, developername) FROM stdin;
+ManjaroLinux	Philip Müller
+ArchLinux	Judd Vinet
+Fedora	Warren Togami
+Qubes OS	Joanna Rutkowska
+Ubuntu	Mark Shuttleworth
+Debian	Ian Murdock
+ElementaryOS	Daniel Foré
+Kali Linux	Mati Aharoni
+Pop!_OS	Carl Richell
+Pop!_OS	Erik Fetzer
+Linux Mint	Clement Lefebvre
+\.
+
+
+--
 -- Name: distribucije_linuxa distribucije_linuxa_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.distribucije_linuxa
     ADD CONSTRAINT distribucije_linuxa_pkey PRIMARY KEY (distributionname);
+
+
+--
+-- Name: originaldevelopers originaldevelopers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.originaldevelopers
+    ADD CONSTRAINT originaldevelopers_pkey PRIMARY KEY (developername);
+
+
+--
+-- Name: originaldevelopers fk_distributionname; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.originaldevelopers
+    ADD CONSTRAINT fk_distributionname FOREIGN KEY (distributionname) REFERENCES public.distribucije_linuxa(distributionname);
 
 
 --

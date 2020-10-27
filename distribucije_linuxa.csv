@@ -1,11 +1,12 @@
-distributionname,basename,releasetype,packagemanager,supportedarch,yearofcreation,homepage,distrowatchrank,targetuse,supportedde,wikipage
-ManjaroLinux,ArchLinux,rolling release,pacman,"x86, x64, ARM (some devices)",2011,https://manjaro.org,2,general,"{""KDE Plasma"",Gnome,XFCE}",Manjaro
-ArchLinux,independent,rolling release,pacman,x64,2002,https://archlinux.org,15,general,{},Arch_Linux
-Fedora,independent,point release,dnf,x64,2003,https://getfedora.org,8,"general, server","{""KDE Plasma"",Gnome,XFCE,LXQt,MATE,Cinnamon,LXDE,SOAS}",Fedora_(operating_system)
-Qubes OS,independent,point release,dnf,x64,2012,https://qubes-os.org,96,"general, security, privacy","{""KDE Plasma"",XFCE}",Qubes_OS
-Ubuntu,Debian,point release,apt,x64,2004,https://ubuntu.com,4,"general, server","{""KDE Plasma"",Gnome,XFCE,DeepinDE,LXQt,Budgie,Mate}",Ubuntu
-Debian,independent,point release,apt,"x86, x64",1993,https://debian.org,6,"general, server","{""KDE Plasma"",Gnome,XFCE,Cinnamon,MATE,LXDE,LXQt}",Debian
-ElementaryOS,Ubuntu,point release,apt,x64,2011,https://elementry.io,7,general,{Pantheon},Elementary_OS
-Kali Linux,Debian,point release,apt,"x86, x64, ARM (some devices)",2013,https://kali.org,23,"cybersecurity, pentesting",{XFCE},Kali_Linux
-Pop!_OS,Ubuntu,point release,apt,x64,2017,https://system76.com/pop,5,general,{Gnome},Pop!_OS
-Linux Mint,Ubuntu,point release,apt,x64,2006,https://linuxmint.com,3,general,"{Cinnamon,XFCE,MATE}",Linux_Mint
+distributionname,basename,releasetype,packagemanager,supportedarch,yearofcreation,homepage,distrowatchrank,targetuse,supportedde,wikipage,developername
+ManjaroLinux,ArchLinux,rolling release,pacman,"x86, x64, ARM (some devices)",2011,https://manjaro.org,2,general,"{""KDE Plasma"",Gnome,XFCE}",Manjaro,Philip Müller
+ArchLinux,independent,rolling release,pacman,x64,2002,https://archlinux.org,15,general,{},Arch_Linux,Judd Vinet
+Fedora,independent,point release,dnf,x64,2003,https://getfedora.org,8,"general, server","{""KDE Plasma"",Gnome,XFCE,LXQt,MATE,Cinnamon,LXDE,SOAS}",Fedora_(operating_system),Warren Togami
+Qubes OS,independent,point release,dnf,x64,2012,https://qubes-os.org,96,"general, security, privacy","{""KDE Plasma"",XFCE}",Qubes_OS,Joanna Rutkowska
+Ubuntu,Debian,point release,apt,x64,2004,https://ubuntu.com,4,"general, server","{""KDE Plasma"",Gnome,XFCE,DeepinDE,LXQt,Budgie,Mate}",Ubuntu,Mark Shuttleworth
+Debian,independent,point release,apt,"x86, x64",1993,https://debian.org,6,"general, server","{""KDE Plasma"",Gnome,XFCE,Cinnamon,MATE,LXDE,LXQt}",Debian,Ian Murdock
+ElementaryOS,Ubuntu,point release,apt,x64,2011,https://elementry.io,7,general,{Pantheon},Elementary_OS,Daniel Foré
+Kali Linux,Debian,point release,apt,"x86, x64, ARM (some devices)",2013,https://kali.org,23,"cybersecurity, pentesting",{XFCE},Kali_Linux,Mati Aharoni
+Pop!_OS,Ubuntu,point release,apt,x64,2017,https://system76.com/pop,5,general,{Gnome},Pop!_OS,Carl Richell
+Pop!_OS,Ubuntu,point release,apt,x64,2017,https://system76.com/pop,5,general,{Gnome},Pop!_OS,Erik Fetzer
+Linux Mint,Ubuntu,point release,apt,x64,2006,https://linuxmint.com,3,general,"{Cinnamon,XFCE,MATE}",Linux_Mint,Clement Lefebvre
