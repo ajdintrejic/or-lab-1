@@ -1,4 +1,4 @@
-# or-lab-1
+# or-labs
 
 ## License
 
@@ -182,3 +182,20 @@ pg_dump orlab1 > /tmp/orlab1.sql
 cp /tmp/orlab1.sql .
 ```
 
+## lab-2
+
+Added support for child parent as json with a function
+```
+CREATE OR REPLACE FUNCTION r(dist TEXT) RETURNS JSONB AS
+$$
+BEGIN
+RETURN json_build_object( 
+'name',
+  array(SELECT developername FROM originaldevelopers WHERE distributionname = dist));
+END;
+$$ LANGUAGE PLPGSQL;
+```
+to query:
+```
+SELECT d.distributionname, d.basename, d.releasetype, d.packagemanager, d.supportedarch, d.yearofcreation, d.homepage, d.distrowatchrank, d.targetuse, d.wikipage, r(distributionname) FROM distribucije_linuxa AS d NATURAL JOIN originaldevelopers;
+```
