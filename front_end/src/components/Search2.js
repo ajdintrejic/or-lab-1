@@ -70,6 +70,12 @@ const columns = [
     sorter: true,
     render: (yearofcreation) => `${yearofcreation}`,
   },
+  {
+    title: "Original developers",
+    dataIndex: "od",
+    sorter: true,
+    render: (od) => `${od.name}`,
+  },
 ];
 
 class Search2 extends React.Component {
@@ -154,7 +160,6 @@ class Search2 extends React.Component {
         </Button>
         <Table
           columns={columns}
-          //rowKey={(record) => record.login.uuid}
           dataSource={data}
           loading={loading}
           onChange={this.handleTableChange}

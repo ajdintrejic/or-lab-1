@@ -11,6 +11,12 @@ function App() {
         <div className="logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">or-lab-2</Menu.Item>
+          <a
+            style={{ margin: 10, color: "white" }}
+            href="https://github.com/ajdintrejic/or-labs/blob/main/README.md"
+          >
+            What is this?
+          </a>
         </Menu>
       </Header>
       <Content style={{ padding: "0 50px" }}>

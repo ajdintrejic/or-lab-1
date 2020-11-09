@@ -4,8 +4,30 @@ import { Button } from "antd";
 function SearchDownload(data) {
   const downloadJsonFile = () => {
     const element = document.createElement("a");
+
+    var schemaDetails = `{
+      "$schema":"http://json-schema.org/draft-07/schema",
+      "$id": "http://or.fer.unizg.hr/distribucije_linuxa.json",
+      "type": "object",
+      "title": "Linux distribucije",
+      "description": "Popis nekih popularnijih Linux distribucija i neke dodatne informacije.",
+      "items":
+      `;
+    var schemaEnd = "}";
+
     const file = new Blob(
-      [decodeURIComponent(encodeURI(JSON.stringify(data, null, 2)))],
+      [
+        decodeURIComponent(
+          encodeURI(
+            JSON.stringify(
+              //JSON.parse(schemaDetails + JSON.stringify(data.data) + schemaEnd),
+              data,
+              null,
+              2
+            )
+          )
+        ),
+      ],
       {
         type: "text/plain",
       }
@@ -26,8 +48,12 @@ function SearchDownload(data) {
     for (var i = 0; i < array.data.length; i++) {
       var line = "";
       for (var index in array.data[i]) {
-        if (line !== "") line += ",";
-        line += array.data[i][index];
+        if (line !== "") line += ";";
+        if (index !== "od") {
+          line += array.data[i][index];
+        } else if (index === "od") {
+          line += array.data[i][index].name;
+        }
       }
 
       str += line + "\r\n";

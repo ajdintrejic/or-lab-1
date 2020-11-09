@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://or.fer.unizg.hr/linux.json",
+    "type": "object",
+    "title": "Linux distribucije",
+    "description": "Popis Linux distribucija",
+    "required": [
+      "data"
+    ],
+    "definitions": {
+      "data": {
+        "type": "array",
+        "title": "Linux distribucija",
+        "description": "Objekt koji sadrži sve podatke o distribuciji.",
+        "required": [
+          "distributionname"
+        ],
+        "properties": {
+          "distributionname": {
+            "type": "string",
+            "title": "Distribution name",
+            "description": "The name of the distribution."
+          }
+        }
+      }
+    }
+  }
