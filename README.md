@@ -197,5 +197,4 @@ $$ LANGUAGE PLPGSQL;
 ```
 to query:
 ```
-SELECT d.distributionname, d.basename, d.releasetype, d.packagemanager, d.supportedarch, d.yearofcreation, d.homepage, d.distrowatchrank, d.targetuse, d.wikipage, r(distributionname) FROM distribucije_linuxa AS d NATURAL JOIN originaldevelopers;
-```
+SELECT d.distributionname, d.basename, d.releasetype, d.packagemanager, d.supportedarch, d.yearofcreation, d.homepage, d.distrowatchrank, d.targetuse, d.wikipage, r(distributionname) AS od FROM distribucije_linuxa AS d NATURAL JOIN originaldevelopers GROUP BY od, d.distributionname, d.basename, d.releasetype, d.packagemanager, d.supportedarch, d.yearofcreation, d.homepage, d.distrowatchrank, d.targetuse, d.wikipage;```
