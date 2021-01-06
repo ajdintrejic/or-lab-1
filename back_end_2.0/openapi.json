@@ -1,0 +1,303 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "info": "Moja usluga",
+    "version": "1.2"
+  },
+  "paths": {
+    "/api/v1/distribution": {
+      "get": {
+        "summary": "Get all distributions",
+        "description": "Returns all rows from the database",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Fetch successfull"
+          },
+          "500": {
+            "description": "Fetch failed"
+          }
+        }
+      },
+      "post": {
+        "summary": "Insert a new distribution",
+        "description": "Inserts a distribution and returns the data",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "distributionname",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "basename",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "releasetype",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "packagemanager",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "supportedarch",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "yearofcreation",
+            "required": true,
+            "type": "integer",
+            "in": "body"
+          },
+          {
+            "name": "homepage",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "distrowatchrank",
+            "required": true,
+            "type": "integer",
+            "in": "body"
+          },
+          {
+            "name": "targetuse",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "supportedde",
+            "required": true,
+            "type": "object",
+            "in": "body"
+          },
+          {
+            "name": "wikipage",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Insert successfull"
+          },
+          "400": {
+            "description": "Distribution already exists"
+          },
+          "500": {
+            "description": "Insert failed"
+          }
+        }
+      }
+    },
+    "/api/v1/distribution/:id": {
+      "delete": {
+        "summary": "Delete a distribution",
+        "description": "Deletes a distribution from the database",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "in": "url"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successfull"
+          },
+          "400": {
+            "description": "Distribution doesn't exist"
+          },
+          "500": {
+            "description": "Delete failed"
+          }
+        }
+      },
+      "put": {
+        "summary": "Updates a distribution info",
+        "description": "Updates a distribution info in the database",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "in": "url"
+          },
+          {
+            "name": "distributionname",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "basename",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "releasetype",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "packagemanager",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "supportedarch",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "yearofcreation",
+            "required": false,
+            "type": "integer",
+            "in": "body"
+          },
+          {
+            "name": "homepage",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "distrowatchrank",
+            "required": false,
+            "type": "integer",
+            "in": "body"
+          },
+          {
+            "name": "targetuse",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          },
+          {
+            "name": "supportedde",
+            "required": false,
+            "type": "object",
+            "in": "body"
+          },
+          {
+            "name": "wikipage",
+            "required": false,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successfull"
+          },
+          "400": {
+            "description": "Distribution doesn't exist"
+          },
+          "500": {
+            "description": "Update failed"
+          }
+        }
+      }
+    },
+    "/api/v1/distribution/:id/basename": {
+      "get": {
+        "summary": "Get distribution's base name",
+        "description": "Returns base name from the database",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "in": "url"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch basename successfull"
+          },
+          "400": {
+            "description": "Distribution doesn't exist"
+          },
+          "500": {
+            "description": "Fetch basename failed"
+          }
+        }
+      }
+    },
+    "/api/v1/distribution/:id/originaldevelopers": {
+      "get": {
+        "summary": "Get distribution's original developers",
+        "description": "Returns original developers' name from the database",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "in": "url"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch original developers successfull"
+          },
+          "400": {
+            "description": "Distribution doesn't exist"
+          },
+          "500": {
+            "description": "Fetch original developers failed"
+          }
+        }
+      }
+    },
+    "/api/v1/distribution/:id/supportedde": {
+      "get": {
+        "summary": "Get distribution's supported desktop environments",
+        "description": "Returns supported desktop environments from the database",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "in": "url"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch supported desktop environments successfull"
+          },
+          "400": {
+            "description": "Distribution doesn't exist"
+          },
+          "500": {
+            "description": "Fetch supported desktop environments failed"
+          }
+        }
+      }
+    }
+  }
+}
