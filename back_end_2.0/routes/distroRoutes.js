@@ -1,4 +1,110 @@
 const pool = require("../db/db");
+var fs = require("fs");
+const { default: axios } = require("axios");
+request = require("request");
+request = require("axios");
+
+const download_image = (url, image_path) =>
+  axios({
+    url,
+    responseType: "stream",
+  }).then(
+    (response) =>
+      new Promise((resolve, reject) => {
+        response.data
+          .pipe(fs.createWriteStream(image_path))
+          .on("finish", () => resolve())
+          .on("error", (e) => reject(e));
+        console.log("FILE SAVED");
+      })
+  );
+
+const getPicture = async (wikipage) => {
+  try {
+    var text = "SELECT * from img_cache WHERE wikipage = $1";
+    var values = [wikipage];
+    const cache_result = await pool.query(text, values);
+    cachetime = Date.now();
+
+    if (cache_result.rows[0]) {
+      //ako ima  u cache-u
+      console.log("ima cache");
+
+      if (Date.now() - cache_result.rows[0].cachetime > 10000) {
+        console.log("novi cache");
+        try {
+          text = "UPDATE img_cache SET cachetime = $2 WHERE wikipage = $1;";
+          values = [wikipage, cachetime];
+          var newCache = await pool.query(text, values);
+          console.log("insert cache ok!");
+          await axios
+            .get(
+              "https://en.wikipedia.org/api/rest_v1/page/summary/" + wikipage
+            )
+            .then(async (res) => {
+              url = res.data.originalimage.source;
+              await axios({
+                url,
+                responseType: "stream",
+              }).then(
+                (response) =>
+                  new Promise((resolve, reject) => {
+                    response.data
+                      .pipe(
+                        fs.createWriteStream("./cache/" + wikipage + ".png")
+                      )
+                      .on("finish", () => resolve())
+                      .on("error", (e) => reject(e));
+                    console.log("FILE SAVED");
+                  })
+              );
+              return wikipage + ".png";
+            });
+        } catch (e) {
+          console.log("insert cache not ok!");
+          console.log(e);
+        }
+      } else {
+        return wikipage + ".png";
+      }
+    } else {
+      // ako nema u cache-u
+      console.log("nema cache");
+
+      try {
+        text = "INSERT INTO img_cache (wikipage, cachetime) VALUES($1, $2);";
+        values = [wikipage, cachetime];
+        var newCache = await pool.query(text, values);
+        console.log("insert cache ok!");
+        await axios
+          .get("https://en.wikipedia.org/api/rest_v1/page/summary/" + wikipage)
+          .then(async (res) => {
+            url = res.data.originalimage.source;
+            await axios({
+              url,
+              responseType: "stream",
+            }).then(
+              (response) =>
+                new Promise((resolve, reject) => {
+                  response.data
+                    .pipe(fs.createWriteStream("./cache/" + wikipage + ".png"))
+                    .on("finish", () => resolve())
+                    .on("error", (e) => reject(e));
+                  console.log("FILE SAVED");
+                })
+            );
+            return wikipage + ".png";
+          });
+      } catch (e) {
+        console.log("insert cache not ok!");
+        console.log(e);
+      }
+    }
+  } catch (e) {
+    console.log(e);
+  }
+  return wikipage + ".png";
+};
 
 module.exports = function (app) {
   app.get("/api/v1/distribution", async (req, res) => {
@@ -24,12 +130,23 @@ module.exports = function (app) {
       var text = "SELECT * from distribucije_linuxa WHERE id = $1";
       var values = [req.params.id];
       const distros = await pool.query(text, values);
+
+      wikipage = distros.rows[0].wikipage;
+      console.log(wikipage);
+
       distros.rows[0].links = {
+        picture: "/api/v1/distribution/" + req.params.id + "/picture",
         supportedde: "/api/v1/distribution/" + req.params.id + "/supportedde",
         originaldevelopers:
           "/api/v1/distribution/" + req.params.id + "/originaldevelopers",
         basename: "/api/v1/distribution/" + req.params.id + "/basename",
       };
+
+      distros.rows[0]["@context"] = {};
+      distros.rows[0]["@context"]["@vocab"] = "https://schema.org/";
+      distros.rows[0]["@context"]["yearofcreation"] = "yearBuilt";
+      distros.rows[0]["@context"]["homepage"] = "WebPage";
+
       res.status(200).json({
         status: "Success",
         message: "Fetched distribution",
@@ -75,6 +192,44 @@ module.exports = function (app) {
       });
     } catch (err) {
       console.error(err.message);
+      res.status(500).json({
+        status: "Error",
+        message: "Fetching distribution supported desktop environments failed",
+        response: null,
+      });
+    }
+  });
+
+  app.get("/api/v1/distribution/:id/picture", async (req, res) => {
+    try {
+      var text = "SELECT * FROM distribucije_linuxa  WHERE id =  $1";
+      var values = [req.params.id];
+      var dist = await pool.query(text, values);
+
+      if (!dist.rows[0]) {
+        res.status(400).json({
+          status: "Error",
+          message:
+            "Bad request, entry with id: " + req.params.id + " doesn't exist.",
+          response: null,
+        });
+      }
+
+      var text = "SELECT * from distribucije_linuxa WHERE id = $1";
+      var values = [req.params.id];
+      const distros = await pool.query(text, values);
+
+      wikipage = distros.rows[0].wikipage;
+      console.log(wikipage);
+      imgPath = getPicture(wikipage).then((img_p) => {
+        res
+          .status(200)
+          .sendFile(
+            "/home/ajdin/Documents/or-labs/back_end_2.0/cache/" + img_p
+          );
+      });
+    } catch (err) {
+      console.error(err);
       res.status(500).json({
         status: "Error",
         message: "Fetching distribution supported desktop environments failed",

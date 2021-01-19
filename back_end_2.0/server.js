@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const pool = require("./db/db");
 const app = express();
+const fs = require("fs");
+const path = require("path");
 app.use(cors());
 const port = 3001;
 
@@ -11,6 +13,27 @@ app.use(express.urlencoded());
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+const clearCache = async () => {
+  try {
+    var text = "DELETE from img_cache WHERE 1=1";
+    const cache_result = await pool.query(text);
+    console.log("Deleted Cache");
+    fs.readdir("cache", (err, files) => {
+      if (err) throw err;
+      for (const file of files) {
+        fs.unlink(path.join("cache", file), (err) => {
+          if (err) throw err;
+        });
+      }
+    });
+  } catch (e) {
+    console.log("Delete Cache failed");
+    console.log(e);
+  }
+};
+
+clearCache();
 
 app.get("/test", async (req, res) => {
   try {
@@ -78,3 +101,4 @@ app.all("*", function (req, res) {
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
+//https://en.wikipedia.org/api/rest_v1/page/summary/Kali_Linux
